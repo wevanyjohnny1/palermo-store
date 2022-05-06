@@ -28,6 +28,8 @@
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "prettier/prettier": "error",
+    "import/prefer-default-export": 0,
+    "react/function-component-definition": 0,
     "import/extensions": [
       "error",
       "ignorePackages",

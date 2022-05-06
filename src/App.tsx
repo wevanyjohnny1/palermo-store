@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { StatusBar } from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
-import Home from './pages/Home';
+import Homescreen from './screens/Homescreen';
 
 export default function App() {
   useEffect(() => {
@@ -11,7 +11,7 @@ export default function App() {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <Home />
+      <Homescreen />
     </>
   );
 }
