@@ -14,6 +14,7 @@ import {
 
 import { CartProps } from '../navigator/types';
 import { ProductOnCardCard } from '../ProductOnCartCard';
+import { EmptyCart } from '../EmptyCart';
 
 export const Cart = ({ navigation }: CartProps) => {
   const renderProductsList = useMemo(() => {
@@ -76,11 +77,12 @@ export const Cart = ({ navigation }: CartProps) => {
     <>
       <Container>
         <PageTitle>Meu Carrinho</PageTitle>
-        <ScrollView showsVerticalScrollIndicator={false}>
+        {/* <ScrollView showsVerticalScrollIndicator={false}>
           {renderProductsList}
-        </ScrollView>
+        </ScrollView> */}
+        <EmptyCart onButtonPress={navigation.goBack} />
       </Container>
-      <CheckOutBox>
+      {/* <CheckOutBox>
         <CheckOutBoxDetails
           style={{
             borderTopWidth: 1,
@@ -102,7 +104,7 @@ export const Cart = ({ navigation }: CartProps) => {
             </CheckoutButtonText>
           </CheckoutButton>
         </CheckOutButtonBox>
-      </CheckOutBox>
+      </CheckOutBox> */}
     </>
   );
 };
