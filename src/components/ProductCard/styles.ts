@@ -10,8 +10,9 @@ export const Container = styled.View<IsSmallerProps>`
   width: ${RFValue(172)}px;
   align-items: center;
   border-radius: 10px;
+  margin-left: 18px;
 
-  margin-right: 49.5px;
+  margin-right: 23.5px;
 
   ${props =>
     props.smaller &&

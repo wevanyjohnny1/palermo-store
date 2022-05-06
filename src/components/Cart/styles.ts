@@ -11,6 +11,7 @@ type CategoryButtonTitleProps = {
 
 export const Container = styled.View`
   flex: 1;
+  padding: 18px;
 
   background-color: ${({ theme }) => theme.colors.background};
 `;
@@ -18,7 +19,6 @@ export const Container = styled.View`
 export const PageHeader = styled.View`
   margin-left: 18px;
   margin-right: 18px;
-  margin-top: 18px;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;

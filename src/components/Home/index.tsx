@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { ScrollView } from 'react-native';
 import {
-  Bag,
   HorizontalList,
   CategoryButton,
   CategoryButtonTitle,
@@ -16,10 +15,11 @@ import {
   ProductsList,
 } from './styles';
 
-import BagImage from '../../assets/images/bag.png';
 import { ProductCard } from '../ProductCard';
+import { CartIcon } from '../CartIcon';
+import { HomeProps } from '../navigator/types';
 
-export const Home = () => {
+export const Home = ({ navigation }: HomeProps) => {
   const renderProductsList = useMemo(() => {
     const items = [
       {
@@ -99,7 +99,7 @@ export const Home = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <PageHeader>
           <PageTitle>Produtos</PageTitle>
-          <Bag source={BagImage} />
+          <CartIcon />
         </PageHeader>
 
         <CategorySelectContainer>

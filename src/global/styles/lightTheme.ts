@@ -7,12 +7,15 @@ export default {
     textGrayLight: '#CCCCCC',
     textGrayLighter: '#6F6F6F',
 
+    thinBorder: '#DBDBDBFA',
+
     primary: '#8775FE',
     secondary: '#504DB6',
     tertiary: '#ECE9FF',
 
     blue: '#5A9ACF',
     blueMedium: '#8775FE',
+    purpleLight: '#9A8BFF',
     gray: '#9A9999',
     grayLight: '#979797',
     grayWeb: '#85868A',
