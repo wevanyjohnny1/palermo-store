@@ -1,94 +1,62 @@
 import React, { useMemo } from 'react';
 import { ScrollView } from 'react-native';
-import {
-  HorizontalList,
-  CategoryButton,
-  CategoryButtonTitle,
-  CategorySelectContainer,
-  CategorySelectTitle,
-  Container,
-  NewProductsContainer,
-  NewProductsContainerTitle,
-  PageHeader,
-  PageTitle,
-  Divider,
-  ProductsList,
-} from './styles';
+import { Container, PageTitle } from './styles';
 
-import { ProductCard } from '../ProductCard';
-import { CartIcon } from '../CartIcon';
 import { CartProps } from '../navigator/types';
+import { ProductOnCardCard } from '../ProductOnCartCard';
 
 export const Cart = ({ navigation }: CartProps) => {
   const renderProductsList = useMemo(() => {
     const items = [
       {
-        category: `men's clothing`,
         name: 'Fjallraven - Foldsack',
-        description:
-          'Your perfect pack for everyday use and walks in the forest.',
         price: 109.95,
+        quantity: 1,
       },
       {
-        category: `men's clothing`,
         name: 'Fjallraven - Foldsack',
-        description:
-          'Your perfect pack for everyday use and walks in the forest.',
         price: 109.95,
+        quantity: 1,
       },
       {
-        category: `men's clothing`,
         name: 'Fjallraven - Foldsack',
-        description:
-          'Your perfect pack for everyday use and walks in the forest.',
         price: 109.95,
+        quantity: 1,
       },
       {
-        category: `men's clothing`,
         name: 'Fjallraven - Foldsack',
-        description:
-          'Your perfect pack for everyday use and walks in the forest.',
         price: 109.95,
+        quantity: 1,
       },
       {
-        category: `men's clothing`,
         name: 'Fjallraven - Foldsack',
-        description:
-          'Your perfect pack for everyday use and walks in the forest.',
         price: 109.95,
+        quantity: 1,
       },
       {
-        category: `men's clothing`,
         name: 'Fjallraven - Foldsack',
-        description:
-          'Your perfect pack for everyday use and walks in the forest.',
         price: 109.95,
+        quantity: 1,
       },
       {
-        category: `men's clothing`,
         name: 'Fjallraven - Foldsack',
-        description:
-          'Your perfect pack for everyday use and walks in the forest.',
         price: 109.95,
+        quantity: 1,
       },
       {
-        category: `men's clothing`,
         name: 'Fjallraven - Foldsack',
-        description:
-          'Your perfect pack for everyday use and walks in the forest.',
         price: 109.95,
+        quantity: 1,
       },
     ];
 
     return items?.map(item => {
       return (
-        <ProductCard
-          isSmaller
+        <ProductOnCardCard
           key={Math.random()}
-          category={item.category}
           name={item.name}
-          description={item.description}
           price={item.price}
+          quantity={item.quantity}
         />
       );
     });
@@ -96,8 +64,9 @@ export const Cart = ({ navigation }: CartProps) => {
 
   return (
     <Container>
+      <PageTitle>Meu Carrinho</PageTitle>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <PageTitle>Meu Carrinho</PageTitle>
+        {renderProductsList}
       </ScrollView>
     </Container>
   );

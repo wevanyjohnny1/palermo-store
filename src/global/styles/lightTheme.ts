@@ -18,6 +18,7 @@ export default {
     purpleLight: '#9A8BFF',
     gray: '#9A9999',
     grayLight: '#979797',
+    grayLighter: '#CCCCCC',
     grayWeb: '#85868A',
     silver: '#B4B4B6',
     platinum: '#EBEBED',
