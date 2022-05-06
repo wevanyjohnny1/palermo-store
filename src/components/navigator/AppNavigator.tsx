@@ -4,6 +4,7 @@ import {
 } from '@react-navigation/stack';
 import React from 'react';
 import CartScreen from '../../screens/Cartscreen';
+import ConfirmationScreen from '../../screens/ConfirmationScreen';
 import HomeScreen from '../../screens/HomeScreen';
 import { Header } from '../Header';
 import { AppNavigatorProps } from './types';
@@ -31,6 +32,13 @@ export const AppNavigator = (props: AppNavigatorProps) => (
       options={{
         title: 'CARRINHO',
         header: props => <Header {...props} headerShown />,
+      }}
+    />
+    <Stack.Screen
+      name="ConfirmationScreen"
+      component={ConfirmationScreen}
+      options={{
+        header: props => <Header {...props} headerShown={false} />,
       }}
     />
   </Stack.Navigator>
