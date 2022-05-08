@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
+    "module": "commonjs",
     "allowJs": true,
+    "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "isolatedModules": true,
