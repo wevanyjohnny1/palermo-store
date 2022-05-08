@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StatusBar } from 'react-native';
+import { LogBox, StatusBar } from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import { ThemeProvider } from 'styled-components';
 import { NavigationContainer } from '@react-navigation/native';
@@ -11,6 +11,9 @@ export default function App() {
   useEffect(() => {
     SplashScreen.hide();
   }, []);
+
+  // Waiting for lottie to update the library
+  LogBox.ignoreLogs(["exported from 'deprecated-react-native-prop-types'."]);
 
   return (
     <ThemeProvider theme={theme}>

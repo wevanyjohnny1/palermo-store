@@ -1,6 +1,10 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import Icon from 'react-native-vector-icons/Entypo';
+
+type ModalButtonProps = {
+  isRed: boolean;
+};
 
 export const Container = styled.View`
   flex: 1;
@@ -100,3 +104,66 @@ export const RemoveIcon = styled(Icon).attrs({
   name: 'minus',
   color: '#CCCCCC',
 })``;
+
+export const ModalContentContainer = styled.View`
+  width: 80%;
+  /* height: 35%; */
+
+  align-self: center;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background-color: ${({ theme }) => theme.colors.background};
+`;
+
+export const ModalTextBox = styled.View`
+  padding: 20px;
+`;
+
+export const ModalTitle = styled.Text`
+  text-align: center;
+
+  font-family: ${({ theme }) => theme.fonts.primaryBold};
+  font-size: ${RFValue(14)}px;
+  color: ${({ theme }) => theme.colors.grayBasic};
+`;
+
+export const ModalSubtitle = styled.Text`
+  text-align: center;
+
+  font-family: ${({ theme }) => theme.fonts.primarySemiBold};
+  font-size: ${RFValue(10)}px;
+  color: ${({ theme }) => theme.colors.grayX11};
+`;
+
+export const DividerHorizontal = styled.View`
+  height: 1px;
+  width: 100%;
+  background-color: ${({ theme }) => theme.colors.platinumBasic};
+`;
+
+export const ModalButtonsBox = styled.View`
+  width: 100%;
+`;
+
+export const ModalButton = styled.Pressable`
+  width: 100%;
+  align-items: center;
+
+  padding: 14px;
+`;
+
+export const ModalButtonText = styled.Text<ModalButtonProps>`
+  font-family: ${({ theme }) => theme.fonts.primaryBold};
+  font-size: ${RFValue(10)}px;
+  color: ${({ theme }) => theme.colors.blueGray};
+
+  ${props =>
+    props.isRed &&
+    css`
+      color: ${({ theme }) => theme.colors.danger};
+    `}
+`;

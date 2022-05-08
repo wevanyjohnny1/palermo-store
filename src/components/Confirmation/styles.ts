@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
+import LottieView from 'lottie-react-native';
 
 export const Container = styled.View`
   flex: 1;
@@ -51,4 +52,11 @@ export const FinishButtonText = styled.Text`
   font-family: ${({ theme }) => theme.fonts.primaryBold};
   color: ${({ theme }) => theme.colors.white};
   font-size: ${RFValue(14)}px;
+`;
+
+export const DoneAnimation = styled(LottieView)`
+  align-self: center;
+  width: 80%;
+  max-width: 180px;
+  max-height: 180px;
 `;

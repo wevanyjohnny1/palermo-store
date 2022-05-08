@@ -111,3 +111,30 @@ export const ProductsList = styled.View`
   align-items: flex-start;
   justify-content: space-between;
 `;
+
+export const GoToCartButtonBox = styled.View`
+  padding: 29px;
+  height: 112px;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const GoToCartButton = styled.TouchableOpacity`
+  width: ${RFValue(317)}px;
+  height: ${RFValue(50)}px;
+
+  align-self: center;
+
+  background-color: ${({ theme }) => theme.colors.purple};
+
+  border-radius: 999999px;
+
+  align-items: center;
+  justify-content: center;
+`;
+
+export const GoToCartButtonText = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.primaryBold};
+  color: ${({ theme }) => theme.colors.white};
+  font-size: ${RFValue(14)}px;
+`;

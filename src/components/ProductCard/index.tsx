@@ -1,5 +1,6 @@
 import React from 'react';
 import DropShadow from 'react-native-drop-shadow';
+import { useAtom } from 'jotai';
 import {
   AddToCartButton,
   AddToCartButtonInsideImage,
@@ -16,9 +17,12 @@ import {
 } from './styles';
 
 import ItemImage from '../../assets/images/item_image.png';
+import { cartListAtom } from '../atom/cartList';
+import { cartTotalQuantityAtom } from '../atom/cartTotalQuantityAtom';
 
 export type ProductCardProps = {
   // image?: string;
+  id: number;
   category: string;
   name: string;
   description: string;
@@ -28,12 +32,32 @@ export type ProductCardProps = {
 
 export const ProductCard = ({
   // image,
+  id,
   category,
   name,
   description,
   price,
   isSmaller = false,
 }: ProductCardProps) => {
+  const [cartList, setCartList] = useAtom(cartListAtom);
+  const [cartTotalQuantity, setCartTotalQuantity] = useAtom(
+    cartTotalQuantityAtom,
+  );
+
+  const handleAddItemToCard = (id: number, name: string, price: number) => {
+    const alreadyOnCart = cartList.findIndex(item => item.id === id);
+
+    if (alreadyOnCart >= 0) {
+      cartList[alreadyOnCart].quantity += 1;
+
+      setCartList(cartList);
+    } else {
+      setCartList([...cartList, { id, name, price, quantity: 1 }]);
+    }
+
+    setCartTotalQuantity(cartTotalQuantity + 1);
+  };
+
   return (
     <Container smaller={isSmaller}>
       <DropShadow
@@ -50,7 +74,9 @@ export const ProductCard = ({
         <ProductImageBox smaller={isSmaller}>
           <ProductImage smaller={isSmaller} source={ItemImage} />
           {isSmaller && (
-            <AddToCartButtonInsideImage>
+            <AddToCartButtonInsideImage
+              onPress={() => handleAddItemToCard(id, name, price)}
+            >
               <AddToCartIcon />
             </AddToCartButtonInsideImage>
           )}
@@ -64,7 +90,9 @@ export const ProductCard = ({
         <ProductPriceBox>
           <ProductPrice>${price}</ProductPrice>
           {!isSmaller && (
-            <AddToCartButton>
+            <AddToCartButton
+              onPress={() => handleAddItemToCard(id, name, price)}
+            >
               <AddToCartIcon />
             </AddToCartButton>
           )}
