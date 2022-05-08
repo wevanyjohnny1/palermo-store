@@ -12,17 +12,17 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		7699B88040F8A987B510C191 /* libPods-palermostore-palermostoreTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-palermostore-palermostoreTests.a */; };
-		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		9078E71FFA6A485BAC23FC19 /* Arapey Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C21A4C435D49444C8C7D4B70 /* Arapey Regular.ttf */; };
-		DC9E52BDE8AE4646B45F45D8 /* Montserrat Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A87DAE9AD8E74FDFA4ADC9FF /* Montserrat Bold.ttf */; };
-		B0ED8C5DE0874F7C83AF19D4 /* Montserrat SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0028F055501446D08ADE11F7 /* Montserrat SemiBold.ttf */; };
-		F6086ADC5E47455D830D11E6 /* WorkSans Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 023F071D4C18465E84F56FD2 /* WorkSans Bold.ttf */; };
-		F31CDA6ADB8E417B9C978263 /* WorkSans Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3A1EFBAC5DE49C0B29D4FB1 /* WorkSans Medium.ttf */; };
-		85DA307968D7408FA127212E /* WorkSans SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 178139309FBB46C2A91EF678 /* WorkSans SemiBold.ttf */; };
 		14B8839CE6D849DC8351C8AF /* Work Sans Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71BCD070ECD54DFABF77E778 /* Work Sans Bold.ttf */; };
 		6090A9B4FBA84E539B7A7D90 /* Work Sans Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB464DF238324C42819BE7FD /* Work Sans Medium.ttf */; };
+		7699B88040F8A987B510C191 /* libPods-palermostore-palermostoreTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-palermostore-palermostoreTests.a */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		85DA307968D7408FA127212E /* WorkSans SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 178139309FBB46C2A91EF678 /* WorkSans SemiBold.ttf */; };
+		9078E71FFA6A485BAC23FC19 /* Arapey Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C21A4C435D49444C8C7D4B70 /* Arapey Regular.ttf */; };
 		AAA01520DD4F46A582EA3788 /* Work Sans SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F7F466C40314A90A88FDBF7 /* Work Sans SemiBold.ttf */; };
+		B0ED8C5DE0874F7C83AF19D4 /* Montserrat SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0028F055501446D08ADE11F7 /* Montserrat SemiBold.ttf */; };
+		DC9E52BDE8AE4646B45F45D8 /* Montserrat Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A87DAE9AD8E74FDFA4ADC9FF /* Montserrat Bold.ttf */; };
+		F31CDA6ADB8E417B9C978263 /* WorkSans Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3A1EFBAC5DE49C0B29D4FB1 /* WorkSans Medium.ttf */; };
+		F6086ADC5E47455D830D11E6 /* WorkSans Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 023F071D4C18465E84F56FD2 /* WorkSans Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,32 +36,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0028F055501446D08ADE11F7 /* Montserrat SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat SemiBold.ttf"; path = "../src/assets/fonts/Montserrat SemiBold.ttf"; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* palermostoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = palermostoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* palermostoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = palermostoreTests.m; sourceTree = "<group>"; };
+		023F071D4C18465E84F56FD2 /* WorkSans Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "WorkSans Bold.ttf"; path = "../src/assets/fonts/WorkSans Bold.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* palermostore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = palermostore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = palermostore/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = palermostore/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = palermostore/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = palermostore/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = palermostore/main.m; sourceTree = "<group>"; };
+		178139309FBB46C2A91EF678 /* WorkSans SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "WorkSans SemiBold.ttf"; path = "../src/assets/fonts/WorkSans SemiBold.ttf"; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-palermostore-palermostoreTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-palermostore-palermostoreTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-palermostore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-palermostore.debug.xcconfig"; path = "Target Support Files/Pods-palermostore/Pods-palermostore.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-palermostore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-palermostore.release.xcconfig"; path = "Target Support Files/Pods-palermostore/Pods-palermostore.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-palermostore-palermostoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-palermostore-palermostoreTests.debug.xcconfig"; path = "Target Support Files/Pods-palermostore-palermostoreTests/Pods-palermostore-palermostoreTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-palermostore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-palermostore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F7F466C40314A90A88FDBF7 /* Work Sans SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Work Sans SemiBold.ttf"; path = "../src/assets/fonts/Work Sans SemiBold.ttf"; sourceTree = "<group>"; };
+		71BCD070ECD54DFABF77E778 /* Work Sans Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Work Sans Bold.ttf"; path = "../src/assets/fonts/Work Sans Bold.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = palermostore/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-palermostore-palermostoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-palermostore-palermostoreTests.release.xcconfig"; path = "Target Support Files/Pods-palermostore-palermostoreTests/Pods-palermostore-palermostoreTests.release.xcconfig"; sourceTree = "<group>"; };
+		A87DAE9AD8E74FDFA4ADC9FF /* Montserrat Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat Bold.ttf"; path = "../src/assets/fonts/Montserrat Bold.ttf"; sourceTree = "<group>"; };
+		C21A4C435D49444C8C7D4B70 /* Arapey Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Arapey Regular.ttf"; path = "../src/assets/fonts/Arapey Regular.ttf"; sourceTree = "<group>"; };
+		C3A1EFBAC5DE49C0B29D4FB1 /* WorkSans Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "WorkSans Medium.ttf"; path = "../src/assets/fonts/WorkSans Medium.ttf"; sourceTree = "<group>"; };
+		DB464DF238324C42819BE7FD /* Work Sans Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Work Sans Medium.ttf"; path = "../src/assets/fonts/Work Sans Medium.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		C21A4C435D49444C8C7D4B70 /* Arapey Regular.ttf */ = {isa = PBXFileReference; name = "Arapey Regular.ttf"; path = "../src/assets/fonts/Arapey Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A87DAE9AD8E74FDFA4ADC9FF /* Montserrat Bold.ttf */ = {isa = PBXFileReference; name = "Montserrat Bold.ttf"; path = "../src/assets/fonts/Montserrat Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		0028F055501446D08ADE11F7 /* Montserrat SemiBold.ttf */ = {isa = PBXFileReference; name = "Montserrat SemiBold.ttf"; path = "../src/assets/fonts/Montserrat SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		023F071D4C18465E84F56FD2 /* WorkSans Bold.ttf */ = {isa = PBXFileReference; name = "WorkSans Bold.ttf"; path = "../src/assets/fonts/WorkSans Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		C3A1EFBAC5DE49C0B29D4FB1 /* WorkSans Medium.ttf */ = {isa = PBXFileReference; name = "WorkSans Medium.ttf"; path = "../src/assets/fonts/WorkSans Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		178139309FBB46C2A91EF678 /* WorkSans SemiBold.ttf */ = {isa = PBXFileReference; name = "WorkSans SemiBold.ttf"; path = "../src/assets/fonts/WorkSans SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		71BCD070ECD54DFABF77E778 /* Work Sans Bold.ttf */ = {isa = PBXFileReference; name = "Work Sans Bold.ttf"; path = "../src/assets/fonts/Work Sans Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		DB464DF238324C42819BE7FD /* Work Sans Medium.ttf */ = {isa = PBXFileReference; name = "Work Sans Medium.ttf"; path = "../src/assets/fonts/Work Sans Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		6F7F466C40314A90A88FDBF7 /* Work Sans SemiBold.ttf */ = {isa = PBXFileReference; name = "Work Sans SemiBold.ttf"; path = "../src/assets/fonts/Work Sans SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +124,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		33BE261E3DEA42EE9AC2C033 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C21A4C435D49444C8C7D4B70 /* Arapey Regular.ttf */,
+				A87DAE9AD8E74FDFA4ADC9FF /* Montserrat Bold.ttf */,
+				0028F055501446D08ADE11F7 /* Montserrat SemiBold.ttf */,
+				023F071D4C18465E84F56FD2 /* WorkSans Bold.ttf */,
+				C3A1EFBAC5DE49C0B29D4FB1 /* WorkSans Medium.ttf */,
+				178139309FBB46C2A91EF678 /* WorkSans SemiBold.ttf */,
+				71BCD070ECD54DFABF77E778 /* Work Sans Bold.ttf */,
+				DB464DF238324C42819BE7FD /* Work Sans Medium.ttf */,
+				6F7F466C40314A90A88FDBF7 /* Work Sans SemiBold.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,23 +183,6 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		33BE261E3DEA42EE9AC2C033 /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				C21A4C435D49444C8C7D4B70 /* Arapey Regular.ttf */,
-				A87DAE9AD8E74FDFA4ADC9FF /* Montserrat Bold.ttf */,
-				0028F055501446D08ADE11F7 /* Montserrat SemiBold.ttf */,
-				023F071D4C18465E84F56FD2 /* WorkSans Bold.ttf */,
-				C3A1EFBAC5DE49C0B29D4FB1 /* WorkSans Medium.ttf */,
-				178139309FBB46C2A91EF678 /* WorkSans SemiBold.ttf */,
-				71BCD070ECD54DFABF77E778 /* Work Sans Bold.ttf */,
-				DB464DF238324C42819BE7FD /* Work Sans Medium.ttf */,
-				6F7F466C40314A90A88FDBF7 /* Work Sans SemiBold.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
