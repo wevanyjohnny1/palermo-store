@@ -43,16 +43,9 @@ export const ProductImageBox = styled.View<IsSmallerProps>`
     `}
 `;
 
-export const ProductImage = styled.Image<IsSmallerProps>`
+export const ProductImage = styled.Image`
   width: 100%;
   height: 100%;
-
-  ${props =>
-    props.smaller &&
-    css`
-      /* width: ${RFValue(130.73)}px;
-      height: ${RFValue(119)}px; */
-    `}
 `;
 
 export const ProductDetails = styled.View<IsSmallerProps>``;
@@ -71,7 +64,7 @@ export const ProductName = styled.Text`
 
 export const ProductDescription = styled.Text`
   font-family: ${({ theme }) => theme.fonts.secondary};
-  color: ${({ theme }) => theme.colors.grayWeb};
+  color: ${({ theme }) => theme.colors.subTitle};
   font-size: ${RFValue(12)}px;
   line-height: ${RFValue(11.73)}px;
 
@@ -93,7 +86,7 @@ export const AddToCartButton = styled.TouchableOpacity`
   width: ${RFValue(30)}px;
   height: ${RFValue(30)}px;
 
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.blueMedium};
   border-radius: 999999px;
 
@@ -109,7 +102,7 @@ export const AddToCartButtonInsideImage = styled.TouchableOpacity`
   width: ${RFValue(30)}px;
   height: ${RFValue(30)}px;
 
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.blueMedium};
   border-radius: 999999px;
 

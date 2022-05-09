@@ -87,7 +87,7 @@ export const ProductCard = ({
           }}
         >
           <ProductImageBox smaller={isSmaller}>
-            <ProductImage smaller={isSmaller} source={{ uri: image }} />
+            <ProductImage source={{ uri: image }} />
             {isSmaller && (
               <AddToCartButtonInsideImage
                 onPress={() => handleAddItemToCard(id, title, price, image)}

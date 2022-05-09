@@ -10,6 +10,7 @@ type AddToCartButtonType = {
 export const Container = styled.View`
   flex: 1;
   width: 100%;
+  background-color: ${({ theme }) => theme.colors.background};
 `;
 
 export const ProductImageBox = styled.View`
@@ -44,7 +45,7 @@ export const ProductName = styled.Text`
 
 export const ProductDescription = styled.Text`
   font-family: ${({ theme }) => theme.fonts.secondary};
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.subTitle};
   font-size: ${RFValue(12)}px;
   line-height: ${RFValue(11.73)}px;
 
@@ -74,7 +75,7 @@ export const ButtonsBox = styled.View``;
 export const CloseModalIcon = styled(EvilIcon).attrs({
   size: RFValue(20),
   name: 'close',
-  color: '#000',
+  color: '#404040',
 })`
   align-self: flex-end;
 `;

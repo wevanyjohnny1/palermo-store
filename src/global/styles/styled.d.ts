@@ -1,8 +1,8 @@
 import 'styled-components';
-import theme from './lightTheme';
+import { Theme } from './type';
 
 declare module 'styled-components' {
-  type ThemeType = typeof theme;
+  type ThemeType = Theme;
 
   // eslint-disable-next-line prettier/prettier
   export interface DefaultTheme extends ThemeType { }

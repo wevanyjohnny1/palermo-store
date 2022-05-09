@@ -8,7 +8,7 @@ export const Container = styled.View`
   align-items: center;
   justify-content: center;
 
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.success};
 `;
 
 export const Title = styled.Text`

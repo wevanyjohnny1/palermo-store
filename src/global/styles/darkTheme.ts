@@ -2,16 +2,18 @@ export default {
   colors: {
     background: '#1B1B1B',
 
-    text: '#000000',
+    text: '#FFFFFF',
     textGray: '#404040',
     textGrayLight: '#CCCCCC',
-    textGrayLighter: '#6F6F6F',
+    textGrayLighter: '#EEEEEE',
+
+    subTitle: '#EEEEEE',
 
     thinBorder: '#DBDBDBFA',
 
     primary: '#8775FE',
     secondary: '#504DB6',
-    tertiary: '#ECE9FF',
+    tertiary: '#434242',
 
     blue: '#5A9ACF',
     blueMedium: '#8775FE',
@@ -27,9 +29,13 @@ export default {
     silver: '#B4B4B6',
     platinum: '#EBEBED',
     platinumBasic: '#e7e7e7',
+    silverChalice: '#B4B4B6',
     white: '#FFFFFF',
 
     danger: '#FD746A',
+
+    categoryFill: '#CAC2FF',
+    success: '#1B1B1B',
   },
 
   fonts: {

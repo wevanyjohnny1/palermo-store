@@ -54,7 +54,7 @@ export const Carousel = styled.ScrollView.attrs({
 `;
 
 export const CategoryButton = styled.TouchableOpacity<CategoryButtonProps>`
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${({ theme }) => theme.colors.platinum};
   align-self: flex-start;
   border-radius: ${RFValue(8)}px;
   border: 1px solid ${({ theme }) => theme.colors.platinum};
@@ -66,14 +66,14 @@ export const CategoryButton = styled.TouchableOpacity<CategoryButtonProps>`
   ${props =>
     props.selected &&
     css`
-      background-color: ${({ theme }) => theme.colors.primary};
+      background-color: ${({ theme }) => theme.colors.categoryFill};
       border: none;
     `}
 `;
 
 export const CategoryButtonTitle = styled.Text<CategoryButtonTitleProps>`
   font-family: ${({ theme }) => theme.fonts.primaryBold};
-  color: ${({ theme }) => theme.colors.silver};
+  color: ${({ theme }) => theme.colors.silverChalice};
   font-size: ${RFValue(8)}px;
 
   padding: 6px 10px;

@@ -7,6 +7,8 @@ export default {
     textGrayLight: '#CCCCCC',
     textGrayLighter: '#6F6F6F',
 
+    subTitle: '#85868A',
+
     thinBorder: '#DBDBDBFA',
 
     primary: '#8775FE',
@@ -27,9 +29,13 @@ export default {
     silver: '#B4B4B6',
     platinum: '#EBEBED',
     platinumBasic: '#e7e7e7',
+    silverChalice: '#B4B4B6',
     white: '#FFFFFF',
 
     danger: '#FD746A',
+
+    categoryFill: '#8775FE',
+    success: '#8775FE',
   },
 
   fonts: {
