@@ -46,7 +46,7 @@ export const CategorySelectTitle = styled.Text`
   margin-bottom: 4px;
 `;
 
-export const HorizontalList = styled.ScrollView.attrs({
+export const Carousel = styled.ScrollView.attrs({
   horizontal: true,
   showsHorizontalScrollIndicator: false,
 })`
@@ -96,20 +96,11 @@ export const NewProductsContainerTitle = styled.Text`
   margin-bottom: 20px;
 `;
 
-export const Divider = styled.View`
-  margin-top: 20px;
-  margin-bottom: 20px;
-  align-self: center;
-  width: 100%;
-  height: ${RFValue(3)}px;
-  background-color: ${({ theme }) => theme.colors.platinum};
-`;
-
 export const ProductsList = styled.View`
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
 export const GoToCartButtonBox = styled.View`

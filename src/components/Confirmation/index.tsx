@@ -15,12 +15,14 @@ import {
 import { ConfirmationProps } from '../navigator/types';
 
 import Done from '../../assets/json/done.json';
-import { cartListAtom } from '../atom/cartList';
-import { cartTotalQuantityAtom } from '../atom/cartTotalQuantityAtom';
+import { cartItemsListAtom } from '../atom/cartItemsList';
+import { cartTotalAtom } from '../atom/cartTotalAtom';
 
-export const Confirmation = ({ navigation }: ConfirmationProps) => {
-  const [, setCartList] = useAtom(cartListAtom);
-  const [, setCartTotalQuantity] = useAtom(cartTotalQuantityAtom);
+export const Confirmation = ({ navigation, route }: ConfirmationProps) => {
+  const { value } = route.params;
+  const { ignoreCart } = value;
+  const [, setCartItemsList] = useAtom(cartItemsListAtom);
+  const [, setCartTotal] = useAtom(cartTotalAtom);
   return (
     <Container>
       <StatusBar
@@ -47,8 +49,10 @@ export const Confirmation = ({ navigation }: ConfirmationProps) => {
           <FinishButton>
             <FinishButtonText
               onPress={() => {
-                setCartList([]);
-                setCartTotalQuantity(0);
+                if (!ignoreCart) {
+                  setCartItemsList([]);
+                  setCartTotal({ quantity: 0, cost: 0 });
+                }
                 navigation.popToTop();
               }}
             >

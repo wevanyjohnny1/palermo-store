@@ -5,7 +5,9 @@ import { ThemeProvider } from 'styled-components';
 import { NavigationContainer } from '@react-navigation/native';
 
 import theme from './global/styles/lightTheme';
+import darkTheme from './global/styles/darkTheme';
 import { AppNavigator } from './components/navigator/AppNavigator';
+import { StoreProvider } from './providers/store/storeProvider';
 
 export default function App() {
   useEffect(() => {
@@ -20,7 +22,9 @@ export default function App() {
       <StatusBar barStyle="dark-content" />
 
       <NavigationContainer>
-        <AppNavigator />
+        <StoreProvider>
+          <AppNavigator />
+        </StoreProvider>
       </NavigationContainer>
     </ThemeProvider>
   );

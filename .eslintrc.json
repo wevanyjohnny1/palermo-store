@@ -40,7 +40,10 @@
     "no-unused-vars": 0,
     "@typescript-eslint/no-unused-vars": 0,
     "no-console": 0,
+    "react/jsx-no-constructed-context-values": 0,
+    "no-else-return": 0,
     "no-shadow": 0,
+    "no-plusplus": 0,
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -55,7 +58,6 @@
         "allowSingleExtends": true
       }
     ],
-    "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": [
       1,
       {

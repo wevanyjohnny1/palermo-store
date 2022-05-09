@@ -1,0 +1,58 @@
+export const items = [
+  {
+    id: 1,
+    category: `men's clothing`,
+    name: 'Fjallraven - Foldsack',
+    description: 'Your perfect pack for everyday use and walks in the forest.',
+    price: 109.95,
+  },
+  {
+    id: 2,
+    category: `men's clothing`,
+    name: 'Fjallraven - Foldsack',
+    description: 'Your perfect pack for everyday use and walks in the forest.',
+    price: 109.95,
+  },
+  {
+    id: 3,
+    category: `men's clothing`,
+    name: 'Fjallraven - Foldsack',
+    description: 'Your perfect pack for everyday use and walks in the forest.',
+    price: 109.95,
+  },
+  {
+    id: 4,
+    category: `men's clothing`,
+    name: 'Fjallraven - Foldsack',
+    description: 'Your perfect pack for everyday use and walks in the forest.',
+    price: 109.95,
+  },
+  {
+    id: 5,
+    category: `men's clothing`,
+    name: 'Fjallraven - Foldsack',
+    description: 'Your perfect pack for everyday use and walks in the forest.',
+    price: 109.95,
+  },
+  {
+    id: 6,
+    category: `men's clothing`,
+    name: 'Fjallraven - Foldsack',
+    description: 'Your perfect pack for everyday use and walks in the forest.',
+    price: 109.95,
+  },
+  {
+    id: 7,
+    category: `men's clothing`,
+    name: 'Fjallraven - Foldsack',
+    description: 'Your perfect pack for everyday use and walks in the forest.',
+    price: 109.95,
+  },
+  {
+    id: 8,
+    category: `men's clothing`,
+    name: 'Fjallraven - Foldsack',
+    description: 'Your perfect pack for everyday use and walks in the forest.',
+    price: 109.95,
+  },
+];

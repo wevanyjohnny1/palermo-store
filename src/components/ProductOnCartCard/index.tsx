@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import DropShadow from 'react-native-drop-shadow';
-import { Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import Modal from 'react-native-modal';
 
 import { useAtom } from 'jotai';
@@ -30,11 +30,11 @@ import {
 } from './styles';
 
 import ItemImage from '../../assets/images/item_image.png';
-import { cartListAtom } from '../atom/cartList';
-import { cartTotalQuantityAtom } from '../atom/cartTotalQuantityAtom';
+import { cartItemsListAtom } from '../atom/cartItemsList';
+import { cartTotalAtom } from '../atom/cartTotalAtom';
 
 export type ProductOnCardCardProps = {
-  // image?: string;
+  image: string;
   id: number;
   name: string;
   price: number;
@@ -42,46 +42,53 @@ export type ProductOnCardCardProps = {
 };
 
 export const ProductOnCardCard = ({
-  // image,
+  image,
   id,
   name,
   price,
   quantity,
 }: ProductOnCardCardProps) => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
-  const [cartList, setCartList] = useAtom(cartListAtom);
-  const [cartTotalQuantity, setCartTotalQuantity] = useAtom(
-    cartTotalQuantityAtom,
-  );
+  const [cartItemsList, setCartItemsList] = useAtom(cartItemsListAtom);
+  const [cartTotal, setCartTotal] = useAtom(cartTotalAtom);
   const [productQuantity, setProductQuantity] = useState<number>(quantity);
 
-  const product = cartList.findIndex(item => item.id === id);
+  const product = cartItemsList.findIndex(item => item.id === id);
 
   const handleDestroyItem = () => {
-    const updatedCartList = cartList.filter(item => item.id !== id);
+    const updatedCartList = cartItemsList.filter(item => item.id !== id);
 
-    setCartTotalQuantity(cartTotalQuantity - 1);
-    setCartList(updatedCartList);
+    setCartTotal({
+      quantity: cartTotal.quantity - 1,
+      cost: cartTotal.cost - cartItemsList[product].price,
+    });
+    setCartItemsList(updatedCartList);
   };
 
-  const handleRemoveItem = (id: number) => {
-    if (cartList[product].quantity > 1) {
-      cartList[product].quantity -= 1;
+  const handleRemoveItem = () => {
+    if (cartItemsList[product].quantity > 1) {
+      cartItemsList[product].quantity -= 1;
       setProductQuantity(productQuantity - 1);
-      setCartTotalQuantity(cartTotalQuantity - 1);
+      setCartTotal({
+        quantity: cartTotal.quantity - 1,
+        cost: cartTotal.cost - cartItemsList[product].price,
+      });
 
-      setCartList(cartList);
+      setCartItemsList(cartItemsList);
     } else {
       setModalVisible(true);
     }
   };
 
   const handleAddItem = () => {
-    cartList[product].quantity += 1;
+    cartItemsList[product].quantity += 1;
     setProductQuantity(productQuantity + 1);
-    setCartTotalQuantity(cartTotalQuantity - 1);
+    setCartTotal({
+      quantity: cartTotal.quantity + 1,
+      cost: cartTotal.cost + cartItemsList[product].price,
+    });
 
-    setCartList(cartList);
+    setCartItemsList(cartItemsList);
   };
 
   return (
@@ -100,12 +107,12 @@ export const ProductOnCardCard = ({
             }}
           >
             <ProductImageBox>
-              <ProductImage source={ItemImage} />
+              <ProductImage source={{ uri: image }} />
             </ProductImageBox>
           </DropShadow>
 
           <ProductDetails>
-            <ProductName>{name}</ProductName>
+            <ProductName>{name.slice(0, 20)}</ProductName>
             <ProductPrice>
               <ProductQuantity>{productQuantity}x</ProductQuantity> ${price}
             </ProductPrice>
@@ -113,7 +120,7 @@ export const ProductOnCardCard = ({
         </ProductBox>
 
         <ButtonsBox>
-          <RemoveItemButton onPress={() => handleRemoveItem(id)}>
+          <RemoveItemButton onPress={() => handleRemoveItem()}>
             <RemoveIcon />
           </RemoveItemButton>
           <Divider />
@@ -122,6 +129,7 @@ export const ProductOnCardCard = ({
           </AddItemButton>
         </ButtonsBox>
       </Container>
+
       <View>
         <Modal
           isVisible={modalVisible}

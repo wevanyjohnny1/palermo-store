@@ -1,5 +1,5 @@
-import React, { Fragment, useMemo, useState } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import React, { useMemo } from 'react';
+import { ScrollView } from 'react-native';
 import { useAtom } from 'jotai';
 import {
   CheckOutBox,
@@ -16,61 +16,70 @@ import {
 import { CartProps } from '../navigator/types';
 import { ProductOnCardCard } from '../ProductOnCartCard';
 import { EmptyCart } from '../EmptyCart';
-import { cartListAtom } from '../atom/cartList';
+import { cartItemsListAtom } from '../atom/cartItemsList';
+import { cartTotalAtom } from '../atom/cartTotalAtom';
 
 export const Cart = ({ navigation }: CartProps) => {
-  const [cartList] = useAtom(cartListAtom);
+  const [cartItemsList] = useAtom(cartItemsListAtom);
+  const [cartTotal] = useAtom(cartTotalAtom);
+
   const renderProductsList = useMemo(() => {
-    return cartList?.map(item => {
+    return cartItemsList?.map(item => {
       return (
         <ProductOnCardCard
           key={item.id}
           id={item.id}
+          image={item.image}
           name={item.name}
           price={item.price}
           quantity={item.quantity}
         />
       );
     });
-  }, [cartList]);
+  }, [cartItemsList]);
 
   return (
-    <>
-      <Container>
-        <PageTitle>Meu Carrinho</PageTitle>
-        {cartList.length > 0 ? (
-          <>
-            <ScrollView showsVerticalScrollIndicator={false}>
-              {renderProductsList}
-            </ScrollView>
-            <CheckOutBox>
-              <CheckOutBoxDetails
-                style={{
-                  borderTopWidth: 1,
-                  borderTopColor: '#EBEBED',
-                  borderBottomWidth: 1,
-                  borderBottomColor: '#EBEBED',
-                }}
-              >
-                <TotalText>Total:</TotalText>
-                <TotalValue>$549.75</TotalValue>
-              </CheckOutBoxDetails>
+    <Container>
+      <PageTitle>Meu Carrinho</PageTitle>
 
-              <CheckOutButtonBox>
-                <CheckoutButton>
-                  <CheckoutButtonText
-                    onPress={() => navigation.navigate('ConfirmationScreen')}
-                  >
-                    FINALIZAR COMPRA
-                  </CheckoutButtonText>
-                </CheckoutButton>
-              </CheckOutButtonBox>
-            </CheckOutBox>
-          </>
-        ) : (
-          <EmptyCart onButtonPress={navigation.goBack} />
-        )}
-      </Container>
-    </>
+      {cartItemsList.length > 0 ? (
+        <>
+          <ScrollView showsVerticalScrollIndicator={false}>
+            {renderProductsList}
+          </ScrollView>
+          <CheckOutBox>
+            <CheckOutBoxDetails
+              style={{
+                borderTopWidth: 1,
+                borderTopColor: '#EBEBED',
+                borderBottomWidth: 1,
+                borderBottomColor: '#EBEBED',
+              }}
+            >
+              <TotalText>Total:</TotalText>
+              <TotalValue>${Number(cartTotal.cost).toFixed(2)}</TotalValue>
+            </CheckOutBoxDetails>
+
+            <CheckOutButtonBox>
+              <CheckoutButton>
+                <CheckoutButtonText
+                  onPress={() =>
+                    navigation.navigate('ConfirmationScreen', {
+                      value: {
+                        ignoreCart: false,
+                      },
+                    })
+                  }
+                >
+                  FINALIZAR COMPRA
+                </CheckoutButtonText>
+              </CheckoutButton>
+            </CheckOutButtonBox>
+          </CheckOutBox>
+        </>
+      ) : (
+        <EmptyCart onButtonPress={navigation.goBack} />
+      )}
+    </Container>
   );
 };

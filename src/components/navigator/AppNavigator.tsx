@@ -6,6 +6,7 @@ import React from 'react';
 import CartScreen from '../../screens/Cartscreen';
 import ConfirmationScreen from '../../screens/ConfirmationScreen';
 import HomeScreen from '../../screens/HomeScreen';
+import ProductScreen from '../../screens/ProductScreen';
 import { Header } from '../Header';
 import { AppNavigatorProps } from './types';
 
@@ -39,6 +40,13 @@ export const AppNavigator = (props: AppNavigatorProps) => (
       component={ConfirmationScreen}
       options={{
         header: props => <Header {...props} headerShown={false} />,
+      }}
+    />
+    <Stack.Screen
+      name="ProductScreen"
+      component={ProductScreen}
+      options={{
+        header: props => <Header {...props} headerShown />,
       }}
     />
   </Stack.Navigator>

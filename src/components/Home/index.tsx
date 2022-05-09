@@ -1,9 +1,9 @@
-import React, { useMemo } from 'react';
-import { ScrollView } from 'react-native';
+import React, { useEffect, useMemo, useState } from 'react';
+import { Animated, ScrollView } from 'react-native';
 import DropShadow from 'react-native-drop-shadow';
 import { useAtom } from 'jotai';
 import {
-  HorizontalList,
+  Carousel,
   CategoryButton,
   CategoryButtonTitle,
   CategorySelectContainer,
@@ -13,7 +13,6 @@ import {
   NewProductsContainerTitle,
   PageHeader,
   PageTitle,
-  Divider,
   ProductsList,
   GoToCartButtonBox,
   GoToCartButton,
@@ -21,210 +20,226 @@ import {
 } from './styles';
 
 import { ProductCard } from '../ProductCard';
-import { CartIcon } from '../CartIcon';
+import { CartButton } from '../CartButton';
 import { HomeProps } from '../navigator/types';
-import { cartListAtom } from '../atom/cartList';
+import { cartItemsListAtom } from '../atom/cartItemsList';
+import { items } from '../utils/staticItems';
+import { HorizontalDivider } from '../HorizontalDivider';
+import { useStore } from '../../providers/store/storeProvider';
+import { Product } from '../../providers/store/types';
+import { LoadingContainer } from '../LoadingContainer';
 
 export const Home = ({ navigation }: HomeProps) => {
-  const [cartList] = useAtom(cartListAtom);
-  const renderProductsList = useMemo(() => {
-    const items = [
-      {
-        id: 1,
-        category: `men's clothing`,
-        name: 'Fjallraven - Foldsack',
-        description:
-          'Your perfect pack for everyday use and walks in the forest.',
-        price: 109.95,
-      },
-      {
-        id: 2,
-        category: `men's clothing`,
-        name: 'Fjallraven - Foldsack',
-        description:
-          'Your perfect pack for everyday use and walks in the forest.',
-        price: 109.95,
-      },
-      {
-        id: 3,
-        category: `men's clothing`,
-        name: 'Fjallraven - Foldsack',
-        description:
-          'Your perfect pack for everyday use and walks in the forest.',
-        price: 109.95,
-      },
-      {
-        id: 4,
-        category: `men's clothing`,
-        name: 'Fjallraven - Foldsack',
-        description:
-          'Your perfect pack for everyday use and walks in the forest.',
-        price: 109.95,
-      },
-      {
-        id: 5,
-        category: `men's clothing`,
-        name: 'Fjallraven - Foldsack',
-        description:
-          'Your perfect pack for everyday use and walks in the forest.',
-        price: 109.95,
-      },
-      {
-        id: 6,
-        category: `men's clothing`,
-        name: 'Fjallraven - Foldsack',
-        description:
-          'Your perfect pack for everyday use and walks in the forest.',
-        price: 109.95,
-      },
-      {
-        id: 7,
-        category: `men's clothing`,
-        name: 'Fjallraven - Foldsack',
-        description:
-          'Your perfect pack for everyday use and walks in the forest.',
-        price: 109.95,
-      },
-      {
-        id: 8,
-        category: `men's clothing`,
-        name: 'Fjallraven - Foldsack',
-        description:
-          'Your perfect pack for everyday use and walks in the forest.',
-        price: 109.95,
-      },
-    ];
+  const [cartItemsList] = useAtom(cartItemsListAtom);
+  const [products, setProducts] = useState<Product[] | null>([]);
+  const [categories, setCategories] = useState<string[] | null>([]);
+  const [isProductsLoading, setIsProductsLoading] = useState<boolean>(false);
+  const [isCategoriesLoading, setIsCategoriesLoading] =
+    useState<boolean>(false);
+  const [selectedCategory, setSelectedCategory] = useState('newProducts');
+  const [animation, setAnimation] = useState(new Animated.Value(0));
 
-    return items?.map(item => {
+  const { getAllProducts, getAllCategories, getProductsByCategory } =
+    useStore();
+
+  const handleGetAllProducts = async () => {
+    const allProductsResponse = await getAllProducts();
+    setProducts(allProductsResponse.productsData);
+    setIsProductsLoading(false);
+  };
+
+  const handleGetAllCategories = async () => {
+    const allCategoriesResponse = await getAllCategories();
+    setCategories(allCategoriesResponse.categoriesData);
+    setIsCategoriesLoading(false);
+  };
+
+  const handleGetProductsByCategory = async () => {
+    const getProductsByCategoryResponse = await getProductsByCategory(
+      selectedCategory,
+    );
+    setProducts(getProductsByCategoryResponse.productsData);
+    setIsProductsLoading(false);
+  };
+
+  useEffect(() => {
+    setIsProductsLoading(true);
+    setIsCategoriesLoading(true);
+
+    handleGetAllCategories();
+    handleGetAllProducts();
+  }, []);
+
+  useEffect(() => {
+    setIsProductsLoading(true);
+    if (selectedCategory !== 'newProducts') {
+      handleGetProductsByCategory();
+    } else {
+      handleGetAllProducts();
+    }
+  }, [selectedCategory]);
+
+  const openAnimation = () => {
+    Animated.sequence([
+      Animated.timing(animation, {
+        toValue: 0,
+        duration: 50,
+        useNativeDriver: true,
+      }),
+      Animated.timing(animation, {
+        toValue: 10,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+      Animated.timing(animation, {
+        toValue: 0,
+        duration: 50,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  };
+
+  useEffect(() => {
+    if (cartItemsList.length > 0) {
+      openAnimation();
+    }
+  }, [cartItemsList]);
+
+  const renderCategoriesList = useMemo(() => {
+    return categories?.map(category => {
+      return (
+        <CategoryButton
+          selected={selectedCategory === category}
+          key={category}
+          onPress={() => setSelectedCategory(category)}
+        >
+          <CategoryButtonTitle selected={selectedCategory === category}>
+            {category}
+          </CategoryButtonTitle>
+        </CategoryButton>
+      );
+    });
+  }, [categories, selectedCategory]);
+
+  const renderNewProductsList = useMemo(() => {
+    const slicedProducts = products?.slice(0, 5);
+    return slicedProducts?.map(product => {
       return (
         <ProductCard
-          isSmaller
-          key={item.id}
-          id={item.id}
-          category={item.category}
-          name={item.name}
-          description={item.description}
-          price={item.price}
+          key={product.id}
+          id={product.id}
+          image={product.image}
+          category={product.category}
+          title={product.title}
+          description={product.description}
+          price={product.price}
+          rating={product.rating}
         />
       );
     });
-  }, []);
+  }, [products]);
+
+  const renderProductsList = useMemo(() => {
+    return products?.map(product => {
+      return (
+        <ProductCard
+          isSmaller
+          key={product.id}
+          id={product.id}
+          image={product.image}
+          category={product.category}
+          title={product.title}
+          description={product.description}
+          price={product.price}
+          rating={product.rating}
+        />
+      );
+    });
+  }, [products]);
 
   return (
     <Container>
       <ScrollView showsVerticalScrollIndicator={false}>
         <PageHeader>
           <PageTitle>Produtos</PageTitle>
-          <CartIcon />
+          <CartButton />
         </PageHeader>
 
         <CategorySelectContainer>
           <CategorySelectTitle>FILTRAR CATEGORIA</CategorySelectTitle>
 
-          <HorizontalList>
-            <CategoryButton selected>
-              <CategoryButtonTitle selected>Últimos</CategoryButtonTitle>
-            </CategoryButton>
-            <CategoryButton selected={false}>
-              <CategoryButtonTitle selected={false}>
-                Categoria 1
-              </CategoryButtonTitle>
-            </CategoryButton>
-            <CategoryButton selected={false}>
-              <CategoryButtonTitle selected={false}>
-                Categoria 1
-              </CategoryButtonTitle>
-            </CategoryButton>
-            <CategoryButton selected={false}>
-              <CategoryButtonTitle selected={false}>
-                Categoria 1
-              </CategoryButtonTitle>
-            </CategoryButton>
-            <CategoryButton selected={false}>
-              <CategoryButtonTitle selected={false}>
-                Categoria 1
-              </CategoryButtonTitle>
-            </CategoryButton>
-            <CategoryButton selected={false}>
-              <CategoryButtonTitle selected={false}>
-                Categoria 1
-              </CategoryButtonTitle>
-            </CategoryButton>
-          </HorizontalList>
+          {!isCategoriesLoading ? (
+            <Carousel>
+              <>
+                <CategoryButton
+                  selected={selectedCategory === 'newProducts'}
+                  onPress={() => setSelectedCategory('newProducts')}
+                >
+                  <CategoryButtonTitle
+                    selected={selectedCategory === 'newProducts'}
+                  >
+                    Úiltimos
+                  </CategoryButtonTitle>
+                </CategoryButton>
+                {renderCategoriesList}
+              </>
+            </Carousel>
+          ) : (
+            <LoadingContainer small />
+          )}
         </CategorySelectContainer>
 
         <NewProductsContainer>
           <NewProductsContainerTitle>Novidades</NewProductsContainerTitle>
-
-          <HorizontalList>
-            <ProductCard
-              id={1}
-              category={`men's clothing`}
-              name="Fjallraven - Foldsack"
-              description="Your perfect pack for everyday use and walks in the forest."
-              price={109.95}
-            />
-            <ProductCard
-              id={2}
-              category={`men's clothing`}
-              name="Fjallraven - Foldsack"
-              description="Your perfect pack for everyday use and walks in the forest."
-              price={109.95}
-            />
-            <ProductCard
-              id={3}
-              category={`men's clothing`}
-              name="Fjallraven - Foldsack"
-              description="Your perfect pack for everyday use and walks in the forest."
-              price={109.95}
-            />
-            <ProductCard
-              id={4}
-              category={`men's clothing`}
-              name="Fjallraven - Foldsack"
-              description="Your perfect pack for everyday use and walks in the forest."
-              price={109.95}
-            />
-            <ProductCard
-              id={5}
-              category={`men's clothing`}
-              name="Fjallraven - Foldsack"
-              description="Your perfect pack for everyday use and walks in the forest."
-              price={109.95}
-            />
-          </HorizontalList>
+          {!isProductsLoading ? (
+            <Carousel>{renderNewProductsList}</Carousel>
+          ) : (
+            <LoadingContainer />
+          )}
         </NewProductsContainer>
 
-        <Divider />
+        <HorizontalDivider />
 
-        <ProductsList>
-          <NewProductsContainerTitle>Listagem</NewProductsContainerTitle>
+        {!isProductsLoading && (
+          <ProductsList>
+            <NewProductsContainerTitle>Listagem</NewProductsContainerTitle>
 
-          <ProductsList>{renderProductsList}</ProductsList>
-        </ProductsList>
+            <ProductsList>{renderProductsList}</ProductsList>
+          </ProductsList>
+        )}
       </ScrollView>
-      {cartList.length > 0 && (
-        <GoToCartButtonBox>
-          <DropShadow
-            style={{
-              shadowColor: 'rgb(194, 193, 248)',
-              shadowOffset: {
-                width: 0,
-                height: 7,
+      {cartItemsList.length > 0 && (
+        <Animated.View
+          style={{
+            transform: [
+              {
+                translateY: animation,
               },
-              shadowOpacity: 0.3,
-              shadowRadius: 5,
-            }}
-          >
-            <GoToCartButton>
-              <GoToCartButtonText
-                onPress={() => navigation.navigate('CartScreen')}
-              >
-                IR PARA O CARRINHO
-              </GoToCartButtonText>
-            </GoToCartButton>
-          </DropShadow>
-        </GoToCartButtonBox>
+            ],
+          }}
+        >
+          <GoToCartButtonBox>
+            <DropShadow
+              style={{
+                shadowColor: 'rgb(194, 193, 248)',
+                shadowOffset: {
+                  width: 0,
+                  height: 7,
+                },
+                shadowOpacity: 0.3,
+                shadowRadius: 5,
+              }}
+            >
+              <GoToCartButton>
+                <GoToCartButtonText
+                  onPress={() => navigation.navigate('CartScreen')}
+                >
+                  IR PARA O CARRINHO
+                </GoToCartButtonText>
+              </GoToCartButton>
+            </DropShadow>
+          </GoToCartButtonBox>
+        </Animated.View>
       )}
     </Container>
   );
