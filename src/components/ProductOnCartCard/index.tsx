@@ -9,7 +9,6 @@ import {
   AddItemButton,
   ButtonsBox,
   Container,
-  Divider,
   ProductBox,
   ProductDetails,
   ProductImage,
@@ -26,11 +25,11 @@ import {
   ModalSubtitle,
   ModalTextBox,
   ModalTitle,
-  DividerHorizontal,
 } from './styles';
 
 import { cartItemsListAtom } from '../atom/cartItemsList';
 import { cartTotalAtom } from '../atom/cartTotalAtom';
+import { Divider } from '../Divider';
 
 export type ProductOnCardCardProps = {
   image: string;
@@ -122,7 +121,7 @@ export const ProductOnCardCard = ({
           <RemoveItemButton onPress={() => handleRemoveItem()}>
             <RemoveIcon />
           </RemoveItemButton>
-          <Divider />
+          <Divider vertical lighterColor />
           <AddItemButton onPress={() => handleAddItem()}>
             <AddIcon />
           </AddItemButton>
@@ -143,7 +142,7 @@ export const ProductOnCardCard = ({
               </ModalSubtitle>
             </ModalTextBox>
             <ModalButtonsBox>
-              <DividerHorizontal />
+              <Divider />
               <ModalButton>
                 <ModalButtonText
                   isRed={false}
@@ -152,7 +151,7 @@ export const ProductOnCardCard = ({
                   PROSSEGUIR
                 </ModalButtonText>
               </ModalButton>
-              <DividerHorizontal />
+              <Divider />
               <ModalButton>
                 <ModalButtonText isRed onPress={() => setModalVisible(false)}>
                   CANCELAR

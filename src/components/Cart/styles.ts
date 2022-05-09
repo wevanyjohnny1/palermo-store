@@ -23,7 +23,7 @@ export const CheckOutBox = styled.View`
 export const CheckOutBoxDetails = styled.View`
   flex-direction: row;
   padding: 10px 12px;
-  height: ${RFValue(38)}px;
+  height: ${RFValue(45)}px;
   align-items: center;
   justify-content: space-between;
 `;

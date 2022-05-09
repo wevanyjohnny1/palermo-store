@@ -85,7 +85,9 @@ export const CategoryButtonTitle = styled.Text<CategoryButtonTitleProps>`
     `}
 `;
 
-export const NewProductsContainer = styled.View``;
+export const NewProductsContainer = styled.View`
+  margin-bottom: 20px;
+`;
 
 export const NewProductsContainerTitle = styled.Text`
   font-family: ${({ theme }) => theme.fonts.primarySemiBold};
@@ -101,6 +103,8 @@ export const ProductsList = styled.View`
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-around;
+
+  margin-top: 20px;
 `;
 
 export const GoToCartButtonBox = styled.View`

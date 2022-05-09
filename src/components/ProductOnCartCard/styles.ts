@@ -79,12 +79,6 @@ export const RemoveItemButton = styled.TouchableOpacity`
   justify-content: center;
 `;
 
-export const Divider = styled.View`
-  height: 100%;
-  width: 1px;
-  background-color: ${({ theme }) => theme.colors.grayLighter};
-`;
-
 export const AddItemButton = styled.TouchableOpacity`
   width: 50%;
   height: 100%;
@@ -136,12 +130,6 @@ export const ModalSubtitle = styled.Text`
   font-family: ${({ theme }) => theme.fonts.primarySemiBold};
   font-size: ${RFValue(10)}px;
   color: ${({ theme }) => theme.colors.grayX11};
-`;
-
-export const DividerHorizontal = styled.View`
-  height: 1px;
-  width: 100%;
-  background-color: ${({ theme }) => theme.colors.platinumBasic};
 `;
 
 export const ModalButtonsBox = styled.View`

@@ -23,7 +23,7 @@ import { ProductCard } from '../ProductCard';
 import { CartButton } from '../CartButton';
 import { HomeProps } from '../navigator/types';
 import { cartItemsListAtom } from '../atom/cartItemsList';
-import { HorizontalDivider } from '../HorizontalDivider';
+import { Divider } from '../Divider';
 import { useStore } from '../../providers/store/storeProvider';
 import { Product } from '../../providers/store/types';
 import { LoadingContainer } from '../LoadingContainer';
@@ -197,7 +197,7 @@ export const Home = ({ navigation }: HomeProps) => {
           )}
         </NewProductsContainer>
 
-        <HorizontalDivider />
+        <Divider />
 
         {!isProductsLoading && (
           <ProductsList>

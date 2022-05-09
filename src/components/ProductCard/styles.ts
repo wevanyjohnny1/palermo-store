@@ -17,7 +17,7 @@ export const Container = styled.View<IsSmallerProps>`
   ${props =>
     props.smaller &&
     css`
-      width: 50%;
+      width: 47%;
       margin-right: 0;
       margin-left: 0;
       margin-bottom: 26px;
@@ -48,7 +48,13 @@ export const ProductImage = styled.Image`
   height: 100%;
 `;
 
-export const ProductDetails = styled.View<IsSmallerProps>``;
+export const ProductDetails = styled.View<IsSmallerProps>`
+  ${props =>
+    props.smaller &&
+    css`
+      width: 80%;
+    `}
+`;
 
 export const ProductCategoryName = styled.Text`
   font-family: ${({ theme }) => theme.fonts.primaryBold};

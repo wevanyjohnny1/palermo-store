@@ -89,31 +89,6 @@ export const ModalContentContainer = styled.View`
   background-color: ${({ theme }) => theme.colors.background};
 `;
 
-export const ModalInstallmentBox = styled.View`
-  justify-content: space-between;
-  flex-direction: row;
-  margin-bottom: 8px;
-  margin-top: 8px;
-`;
-
-export const InstallmentNumber = styled.Text`
-  font-family: ${({ theme }) => theme.fonts.primaryBold};
-  font-size: ${RFValue(14)}px;
-  color: ${({ theme }) => theme.colors.grayBasic};
-`;
-
-export const InstallmentValue = styled.Text`
-  font-family: ${({ theme }) => theme.fonts.primarySemiBold};
-  font-size: ${RFValue(14)}px;
-  color: ${({ theme }) => theme.colors.text};
-`;
-
-export const InstallmentSpan = styled.Text`
-  font-family: ${({ theme }) => theme.fonts.primary};
-  font-size: ${RFValue(14)}px;
-  color: ${({ theme }) => theme.colors.grayBasic};
-`;
-
 export const InstallmentDescription = styled.Text`
   margin-top: 24px;
   font-family: ${({ theme }) => theme.fonts.primary};
@@ -121,12 +96,6 @@ export const InstallmentDescription = styled.Text`
   color: ${({ theme }) => theme.colors.grayBasic};
 
   text-align: justify;
-`;
-
-export const DividerHorizontal = styled.View`
-  height: 1px;
-  width: 100%;
-  background-color: ${({ theme }) => theme.colors.platinumBasic};
 `;
 
 export const BuyProductButtonBox = styled.View`

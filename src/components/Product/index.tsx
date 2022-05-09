@@ -6,14 +6,9 @@ import {
   AddToCartButton,
   CloseModalIcon,
   Container,
-  DividerHorizontal,
   BuyProductButtonBox,
   InstallmentDescription,
-  InstallmentNumber,
-  InstallmentSpan,
-  InstallmentValue,
   ModalContentContainer,
-  ModalInstallmentBox,
   OpenInstallmentModalText,
   ProductCategoryName,
   ProductDescription,
@@ -32,6 +27,8 @@ import {
 import { ProductProps } from '../navigator/types';
 import { cartItemsListAtom } from '../atom/cartItemsList';
 import { cartTotalAtom } from '../atom/cartTotalAtom';
+import { InstallmentBox } from '../InstallmentBox';
+import { Divider } from '../Divider';
 
 export const Product = ({ navigation, route }: ProductProps) => {
   const { value: product } = route.params;
@@ -143,55 +140,20 @@ export const Product = ({ navigation, route }: ProductProps) => {
             <Pressable onPress={() => setModalVisible(false)}>
               <CloseModalIcon />
             </Pressable>
-            <ModalInstallmentBox>
-              <InstallmentNumber>1x</InstallmentNumber>
-              <InstallmentValue>
-                <InstallmentSpan>$ </InstallmentSpan>
-                {Number(product.price).toFixed(2)}
-                <InstallmentSpan> sem juros</InstallmentSpan>
-              </InstallmentValue>
-            </ModalInstallmentBox>
-            <DividerHorizontal />
+            <InstallmentBox quantity={1} price={product.price} />
+            <Divider />
 
-            <ModalInstallmentBox>
-              <InstallmentNumber>2x</InstallmentNumber>
-              <InstallmentValue>
-                <InstallmentSpan>$ </InstallmentSpan>
-                {Number(product.price / 2).toFixed(2)}
-                <InstallmentSpan> sem juros</InstallmentSpan>
-              </InstallmentValue>
-            </ModalInstallmentBox>
-            <DividerHorizontal />
+            <InstallmentBox quantity={2} price={product.price} />
+            <Divider />
 
-            <ModalInstallmentBox>
-              <InstallmentNumber>3x</InstallmentNumber>
-              <InstallmentValue>
-                <InstallmentSpan>$ </InstallmentSpan>
-                {Number(product.price / 3).toFixed(2)}
-                <InstallmentSpan> sem juros</InstallmentSpan>
-              </InstallmentValue>
-            </ModalInstallmentBox>
-            <DividerHorizontal />
+            <InstallmentBox quantity={3} price={product.price} />
+            <Divider />
 
-            <ModalInstallmentBox>
-              <InstallmentNumber>4x</InstallmentNumber>
-              <InstallmentValue>
-                <InstallmentSpan>$ </InstallmentSpan>
-                {Number(product.price / 4).toFixed(2)}
-                <InstallmentSpan> sem juros</InstallmentSpan>
-              </InstallmentValue>
-            </ModalInstallmentBox>
-            <DividerHorizontal />
+            <InstallmentBox quantity={4} price={product.price} />
+            <Divider />
 
-            <ModalInstallmentBox>
-              <InstallmentNumber>5x</InstallmentNumber>
-              <InstallmentValue>
-                <InstallmentSpan>$ </InstallmentSpan>
-                {Number(product.price / 5).toFixed(2)}
-                <InstallmentSpan> sem juros</InstallmentSpan>
-              </InstallmentValue>
-            </ModalInstallmentBox>
-            <DividerHorizontal />
+            <InstallmentBox quantity={5} price={product.price} />
+            <Divider />
 
             <InstallmentDescription>
               As compras com Visa, Mastercard, Dinners e Hipercard poderão ser
