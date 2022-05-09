@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import DropShadow from 'react-native-drop-shadow';
-import { Pressable, Text, View } from 'react-native';
+import { View } from 'react-native';
 import Modal from 'react-native-modal';
 
 import { useAtom } from 'jotai';
@@ -29,7 +29,6 @@ import {
   DividerHorizontal,
 } from './styles';
 
-import ItemImage from '../../assets/images/item_image.png';
 import { cartItemsListAtom } from '../atom/cartItemsList';
 import { cartTotalAtom } from '../atom/cartTotalAtom';
 

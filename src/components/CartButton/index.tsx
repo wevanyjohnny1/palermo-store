@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Pressable, Animated } from 'react-native';
+import { Pressable, Animated, Appearance } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useAtom } from 'jotai';
 import { Bag, Container, Quantity, QuantityCircle } from './styles';
 
 import BagImage from '../../assets/images/bag.png';
+import WhiteBagImage from '../../assets/images/white_bag.png';
 import { cartItemsListAtom } from '../atom/cartItemsList';
 import { cartTotalAtom } from '../atom/cartTotalAtom';
 
@@ -13,6 +14,8 @@ export const CartButton = () => {
   const [cartItemsList] = useAtom(cartItemsListAtom);
   const [cartTotal] = useAtom(cartTotalAtom);
   const [animation] = useState(new Animated.Value(0));
+
+  const colorScheme = Appearance.getColorScheme();
 
   const startAnimation = () => {
     Animated.sequence([
@@ -36,7 +39,8 @@ export const CartButton = () => {
   return (
     <Pressable onPress={() => navigator.navigate('CartScreen')}>
       <Container>
-        <Bag source={BagImage} />
+        <Bag source={colorScheme === 'light' ? BagImage : WhiteBagImage} />
+
         {cartItemsList.length > 0 ? (
           <QuantityCircle>
             <Animated.View

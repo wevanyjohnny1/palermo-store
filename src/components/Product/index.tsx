@@ -132,6 +132,7 @@ export const Product = ({ navigation, route }: ProductProps) => {
           </AddToCartButtonText>
         </AddToCartButton>
       </BuyProductButtonBox>
+
       <View>
         <Modal
           isVisible={modalVisible}

@@ -49,11 +49,11 @@ export const Confirmation = ({ navigation, route }: ConfirmationProps) => {
           <FinishButton>
             <FinishButtonText
               onPress={() => {
+                navigation.popToTop();
                 if (!ignoreCart) {
                   setCartItemsList([]);
                   setCartTotal({ quantity: 0, cost: 0 });
                 }
-                navigation.popToTop();
               }}
             >
               PROSSEGUIR

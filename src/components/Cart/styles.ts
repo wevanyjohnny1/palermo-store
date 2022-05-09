@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components/native';
+import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
 
 export const Container = styled.View`
@@ -48,7 +48,7 @@ export const CheckOutButtonBox = styled.View`
 `;
 
 export const CheckoutButton = styled.TouchableOpacity`
-  width: 100%;
+  width: ${RFValue(317)}px;
   height: ${RFValue(50)}px;
 
   align-self: center;

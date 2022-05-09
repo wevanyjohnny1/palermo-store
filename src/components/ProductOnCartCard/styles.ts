@@ -107,7 +107,6 @@ export const RemoveIcon = styled(Icon).attrs({
 
 export const ModalContentContainer = styled.View`
   width: 80%;
-  /* height: 35%; */
 
   align-self: center;
 

@@ -46,7 +46,7 @@ export const AppNavigator = (props: AppNavigatorProps) => (
       name="ProductScreen"
       component={ProductScreen}
       options={{
-        header: props => <Header {...props} headerShown />,
+        header: props => <Header {...props} headerShown productHeader />,
       }}
     />
   </Stack.Navigator>

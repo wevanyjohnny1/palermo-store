@@ -23,7 +23,6 @@ import { ProductCard } from '../ProductCard';
 import { CartButton } from '../CartButton';
 import { HomeProps } from '../navigator/types';
 import { cartItemsListAtom } from '../atom/cartItemsList';
-import { items } from '../utils/staticItems';
 import { HorizontalDivider } from '../HorizontalDivider';
 import { useStore } from '../../providers/store/storeProvider';
 import { Product } from '../../providers/store/types';
@@ -37,7 +36,7 @@ export const Home = ({ navigation }: HomeProps) => {
   const [isCategoriesLoading, setIsCategoriesLoading] =
     useState<boolean>(false);
   const [selectedCategory, setSelectedCategory] = useState('newProducts');
-  const [animation, setAnimation] = useState(new Animated.Value(0));
+  const [animation] = useState(new Animated.Value(0));
 
   const { getAllProducts, getAllCategories, getProductsByCategory } =
     useStore();
@@ -208,6 +207,7 @@ export const Home = ({ navigation }: HomeProps) => {
           </ProductsList>
         )}
       </ScrollView>
+
       {cartItemsList.length > 0 && (
         <Animated.View
           style={{

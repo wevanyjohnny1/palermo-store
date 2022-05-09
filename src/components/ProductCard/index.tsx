@@ -18,7 +18,6 @@ import {
   ProductPriceBox,
 } from './styles';
 
-import ItemImage from '../../assets/images/item_image.png';
 import { cartItemsListAtom } from '../atom/cartItemsList';
 import { cartTotalAtom } from '../atom/cartTotalAtom';
 import { Product } from '../../providers/store/types';
