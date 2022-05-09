@@ -3,8 +3,7 @@
 ## Prerequisites
 
 - [Node.js > 12](https://nodejs.org)
-- [Npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) or
-- [Yarn](https://yarnpkg.com/)
+- [Npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) or [Yarn](https://yarnpkg.com/)
 - [Watchman](https://facebook.github.io/watchman)
 - [Xcode](https://developer.apple.com/xcode)
 - [Cocoapods](https://cocoapods.org)
